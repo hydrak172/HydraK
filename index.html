@@ -7,6 +7,115 @@
     <title>Document</title>
 </head>
 <body>
-    ga
+    <script>
+        const user={name: 'Nguyen Hoa Khanh',email:'hydrak1989@gmail.com'}
+        const student=  {id: 123 ,score:10}
+        //INPUT : 2 objects 
+        //a:(name:string,email:string)
+        //b:{id:string,score:string}
+        //OUTPUT:stringhocsinh[name] co diem la [score]
+        const funcA=({name},{id,score})=>{
+            return `hoc sinh${name},ma so ${score} co diem la ${score}`
+
+        }
+        console.log(funcA(user,student)) 
+        const funcB=({id,score},name,email)=>{}
+        console.log(funcB(student,user.name,user.email))
+
+
+        const arr=[1,2,3,4,5,6,7,8,9,10]
+        //foreach
+        arr.forEach(item => {
+            console.log(item)
+        });
+        //map inra chuoi moi *2 gia tri 
+        const b=arr.map(item=>{
+            return item*2
+        })
+        console.log(b)
+        //timtatca cac gia tri la so le .... filter
+        
+        const c=arr.filter(item=>{
+            return item%2
+        })
+        console.log(c)
+        // tim cac gia tri chia het cho 3 .... find
+
+        const d=arr.find(item=>{
+            return item%3===0
+        })
+        console.log(d)
+        
+        //in ra name va email cua userA ... on dau 
+        const userA={ 
+            ...user,
+            name:'Phung van B '
+    }
+        console.log(userA)
+
+        // array + object
+        const users=[
+            {name:'A',email:'Phung van A',age:20},
+            {name:'B',email:'Phung van B',age:25},
+            {name:'C',email:'Phung van C',age:30},
+        ];
+        //tim nhung nguoi >25 tuoi =>dung filter
+        const usersA=users.filter((item)=>{
+            return item.age<25 
+        })
+        console.log(usersA)
+        //tim nguoi cu the  ten c va 30 tuoi
+        const usersB=users.find((item)=>{
+            return item.name==='C',item.age===30
+        })
+        console.log(usersB)
+
+        ///
+        //charge age 25 thanh 30 tuoi c1
+        const usersC=users.find((item)=>{
+            if (item.age<25){
+                item.age=30
+            }
+            return item
+        })
+        console.log(usersC)
+        //charge age 25 thanh 30 tuoi c2
+        const usersD=users.map((item)=>{
+            return {
+                ...item,
+                age:item.age<=25?30:item.age //caudieukien 
+            }
+        })
+        console.log(usersD)
+        //charge age 25 thanh 30 tuoi c2
+        const usersE=users.map((item)=>{            return {
+                ...item,
+                age:30 
+            }
+            return item
+        })
+        console.log(usersE)
+        //
+        ///
+
+        //cap nhat email cua all user thanh name + tuoi 
+        //vidu A20@gmail.com
+        const usersF=users.map((item)=>{
+            return {
+                ...item,
+                // email:`A20@gmail.com`
+                email:`${item.name}${item.age}@gmail.com`
+                // ${item.name}${item.age}@gmail.com
+            }
+        })
+        console.log(usersF)
+        //thay tat ca cac phan tu  cua users thanh so 10
+        
+        const usersG=users.map((item)=>{
+            return 10
+        })
+        console.log(usersG)
+        // 
+    </script>
 </body>
 </html>
